@@ -1,0 +1,51 @@
+### add
+POST {{host}}/book/add
+Content-Type: application/json
+
+{
+  "id": "",
+  "title": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "author": "2332",
+  "isbn": "111",
+  "publicationYear": "2022",
+  "bookStatus": "",
+  "bookStatusName": ""
+}
+
+### get
+GET {{host}}/book/get/11
+Content-Type: application/json
+
+### update
+PUT {{host}}/book/update
+Content-Type: application/json
+
+{
+  "id": 6,
+  "title": "The Great",
+  "author": "Charles Scribner's Sons",
+  "publicationYear": "1925",
+  "isbn": "112",
+  "bookStatus": "0",
+  "bookStatusName": "Available",
+  "createdTime": "2024-02-05 05:52:14",
+  "updateTime": "2024-02-04 23:08:31"
+}
+
+### delete
+DELETE {{host}}/book/delete/2
+Content-Type: application/json
+
+### list
+POST {{host}}/book/list
+Content-Type: application/json
+
+{
+  "pageNumber": 1,
+  "pageSize": 10,
+  "title": "",
+  "author": "",
+  "isbn": "159756",
+  "sortBy": "createdTime",
+  "sortDirection": "DESC"
+}

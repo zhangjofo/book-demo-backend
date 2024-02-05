@@ -1,0 +1,25 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 8080
+  servlet:
+    context-path: /book-system
+
+spring:
+  datasource:
+    name : book
+    url : jdbc:mysql://localhost:3306/book?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username : book
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    show-sql: true
+
+#Debug
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: INFO
