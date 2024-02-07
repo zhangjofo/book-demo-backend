@@ -19,7 +19,7 @@ Check the quality of code with sonar
 * Check the code specification with the alibaba java coding guidelines tool
 * Writing unit tests
 * Use Jacoco to check coverage
-![img.png](document/images/coverage.png)
+  ![img.png](document/images/coverage.png)
   There is no time to solve the mock problem of Specification yet, so the coverage rate has not reached 100%.
 * Use httpClient tool or postman tool to check the interface
 
@@ -41,8 +41,8 @@ Check the quality of code with sonar
 
 ## Setup and deploy
 
-JDK：21
-tools：IntelliJ IDEA
-maven: 3.9.6
-CI/CD：Automated deployment through docker+Jenkins+Git+Harbor (To be processed)
+* JDK：21
+* tools：IntelliJ IDEA
+* maven: 3.9.6
+* CI/CD：Automated deployment through docker+Jenkins+Git+Harbor (To be processed)
 
