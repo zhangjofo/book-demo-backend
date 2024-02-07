@@ -1,3 +1,4 @@
+-- Note: The isbn is the only constraint
 create table if not exists book
 (
     id               bigint auto_increment
