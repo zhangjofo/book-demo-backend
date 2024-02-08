@@ -34,7 +34,10 @@ public class WebLogAspect {
     public void doBefore(JoinPoint joinPoint) throws Exception {
         // Start printing the request logs
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        HttpServletRequest request = attributes.getRequest();
+        HttpServletRequest request = null;
+        if (attributes != null) {
+            request = attributes.getRequest();
+        }
 
         // Get descriptive information for @WebLog annotations
         String methodDescription = getAspectLogDescription(joinPoint);
