@@ -12,14 +12,5 @@ spring:
     username : book
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
-
   jpa:
     show-sql: true
-
-#Debug
-logging:
-  level:
-    org:
-      springframework:
-        boot:
-          autoconfigure: INFO
