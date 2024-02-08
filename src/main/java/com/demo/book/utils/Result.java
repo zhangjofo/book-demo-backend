@@ -4,6 +4,7 @@ import com.demo.book.orm.constant.MessageConstant;
 import com.demo.book.orm.entity.ResultCode;
 import lombok.Getter;
 import lombok.Setter;
+import org.slf4j.MDC;
 
 /**
  *  @author Jofo
@@ -45,6 +46,7 @@ public class Result<T>{
         this.message = message;
         this.timestamp = System.currentTimeMillis();
         this.isSuccess = code == 200 || code == 10200;
+        this.traceId = MDC.get("traceId") == null ? "" : MDC.get("traceId");
     }
 
 

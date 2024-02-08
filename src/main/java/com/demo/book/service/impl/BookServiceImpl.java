@@ -43,6 +43,7 @@ public class BookServiceImpl implements BookService {
         book.setBookStatus(BookStatusEnum.AVAILABLE.getCode());
         book = bookRepository.save(book);
         if (book.getId() != null) {
+            log.info("book already saved, id: {}", book.getId());
             return MessageConstant.SUCCESS;
         }
         return MessageConstant.FAILURE;
@@ -58,6 +59,7 @@ public class BookServiceImpl implements BookService {
             BeanUtils.copyProperties(bookDTO, book.get());
             book.get().setUpdateTime(now());
             bookRepository.save(book.get());
+            log.info("book already updated, id: {}", book.get().getId());
             return MessageConstant.SUCCESS;
         }
         return MessageConstant.FAILURE;
@@ -70,6 +72,7 @@ public class BookServiceImpl implements BookService {
     public String deleteBook(Long id) {
         Optional<Book> book = bookRepository.findById(id);
         if (book.isPresent()) {
+            log.info("book already deleted, id: {}", book.get().getId());
             bookRepository.deleteById(id);
             return MessageConstant.SUCCESS;
         }
@@ -83,6 +86,7 @@ public class BookServiceImpl implements BookService {
     public BookVO getBookById(Long id) {
         Optional<Book> book = bookRepository.findById(id);
         if (book.isPresent()) {
+            log.info("get book id: {}", book.get().getId());
             BookVO bookVO = new BookVO();
             BeanUtils.copyProperties(book.get(), bookVO);
             bookVO.setBookStatusName(Objects.requireNonNull(BookStatusEnum.getBookStatusEnum(book.get().getBookStatus())).getName());
@@ -119,6 +123,7 @@ public class BookServiceImpl implements BookService {
             bookVO.setBookStatusName(Objects.requireNonNull(BookStatusEnum.getBookStatusEnum(book.getBookStatus())).getName());
             bookVOList.add(bookVO);
         });
+        log.info("query book list total: {}", page.getTotalElements());
         return new PageImpl<>(bookVOList,pageable,page.getTotalElements());
     }
 
@@ -129,5 +134,4 @@ public class BookServiceImpl implements BookService {
     public Map<Integer, String> getBookStatus() {
         return BookStatusEnum.getBookStatusEnumMap();
     }
-
 }
