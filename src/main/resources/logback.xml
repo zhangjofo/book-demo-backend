@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <property name="LOG_PATTERN"
-              value="%d{yyyy-MM-dd} %d{HH:mm:ss.SSS} [%highlight(%-5level)] [%boldYellow(%X{traceId})] [%boldYellow(%thread)] %boldGreen(%logger{36} %F.%L) %msg%n"></property>
+              value="%d{yyyy-MM-dd} %d{HH:mm:ss.SSS} [%highlight(%-5level)] [%boldYellow(%X{traceId})] [%boldYellow(%thread)] %boldGreen(%logger{36} %F.%L) %msg%n"/>
     <property name="FILE_LOG_PATTERN"
-              value="%d{yyyy-MM-dd} %d{HH:mm:ss.SSS} [%-5level] [%X{traceId}] [%thread] %logger{36} %F.%L %msg%n"></property>
+              value="%d{yyyy-MM-dd} %d{HH:mm:ss.SSS} [%-5level] [%X{traceId}] [%thread] %logger{36} %F.%L %msg%n"/>
     <property name="FILE_PATH" value="D:/logs/demo.%d{yyyy-MM-dd}.%i.log"/>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -23,7 +23,7 @@
             <pattern>${FILE_LOG_PATTERN}</pattern>
         </encoder>
     </appender>
-    <logger name="com.demo.book.controller" level="debug"></logger>
+    <logger name="com.demo.book.controller" level="debug"/>
     <root level="info">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
