@@ -1,5 +1,6 @@
 package com.demo.book.controller;
 
+import com.demo.book.aspect.WebLog;
 import com.demo.book.orm.dto.BookDTO;
 import com.demo.book.orm.dto.BookEditDTO;
 import com.demo.book.orm.dto.BookQueryDTO;
@@ -30,6 +31,7 @@ public class BookController {
     /**
      * description: BookController add book
      */
+    @WebLog(description = "add book")
     @PostMapping("/add")
     public Result<String> addBook(@Valid @RequestBody BookDTO bookDTO) {
         return Result.data(bookService.addBook(bookDTO));
@@ -38,6 +40,7 @@ public class BookController {
     /**
      * description: BookController update book
      */
+    @WebLog(description = "update book")
     @PutMapping("/update")
     public Result<String> updateBook(@Valid @RequestBody BookEditDTO bookDTO) {
         return Result.data(bookService.updateBook(bookDTO));
@@ -47,6 +50,7 @@ public class BookController {
     /**
      * description: BookController delete book
      */
+    @WebLog(description = "delete book")
     @DeleteMapping("/delete/{id}")
     public Result<String> deleteBook(@PathVariable("id") Long id) {
         return Result.data(bookService.deleteBook(id));
@@ -55,6 +59,7 @@ public class BookController {
     /**
      * description: BookController get book by id
      */
+    @WebLog(description = "get book details")
     @GetMapping("/get/{id}")
     public Result<BookVO> getBookById(@PathVariable("id") Long id) {
         return Result.data(bookService.getBookById(id));
@@ -63,6 +68,7 @@ public class BookController {
     /**
      * description: BookController query book list
      */
+    @WebLog(description = "query book list")
     @PostMapping("/list")
     public Result<Page<BookVO>> queryBookList(@Valid @RequestBody BookQueryDTO bookQueryDTO) {
         return Result.data(bookService.queryBookList(bookQueryDTO));
@@ -71,6 +77,7 @@ public class BookController {
     /**
      * description: BookController get book status
      */
+    @WebLog(description = "get all of book status")
     @GetMapping("/bookStatus")
     public Result<Map<Integer,String>> queryBookStatus() {
         return Result.data(bookService.getBookStatus());
