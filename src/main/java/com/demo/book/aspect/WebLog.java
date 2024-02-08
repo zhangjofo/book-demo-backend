@@ -10,7 +10,7 @@ import java.lang.annotation.*;
 @Documented
 public @interface WebLog {
     /**
-     * 日志描述信息
+     * Description of the log
      */
     String description() default "";
 

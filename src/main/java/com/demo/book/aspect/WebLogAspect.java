@@ -42,25 +42,25 @@ public class WebLogAspect {
         // Get descriptive information for @WebLog annotations
         String methodDescription = getAspectLogDescription(joinPoint);
 
-        // 打印请求相关参数
+        // Print request parameters
         log.info("========== Start ==========");
-        // 打印请求 url
+        // Print the request url
         if (request != null) {
             log.info("URL            : {}", request.getRequestURL());
         }
-        // 打印描述信息
+        // Print the description
         log.info("Description    : {}", methodDescription);
-        // 打印 Http method
+        // print Http method
         if (request != null) {
             log.info("HTTP Method    : {}", request.getMethod());
         }
-        // 打印调用 controller 的全路径以及执行方法
+        // Print calls controller and how to execute it
         log.info("Class Method   : {}.{}", joinPoint.getSignature().getDeclaringTypeName(), joinPoint.getSignature().getName());
-        // 打印请求的 IP
+        // Print the request IP
         if (request != null) {
             log.info("IP             : {}", request.getRemoteAddr());
         }
-        // 打印请求入参
+        // Print request input parameters
         log.info("Request Args   : {}", JSON.toJSON(joinPoint.getArgs()));
     }
 
