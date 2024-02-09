@@ -10,6 +10,7 @@ import com.demo.book.orm.entity.Book;
 import com.demo.book.orm.enumeration.BookStatusEnum;
 import com.demo.book.orm.vo.BookVO;
 import com.demo.book.service.BookService;
+import com.demo.book.utils.EncryptionUtil;
 import io.micrometer.common.util.StringUtils;
 import jakarta.annotation.Resource;
 import jakarta.persistence.criteria.Predicate;
@@ -54,7 +55,7 @@ public class BookServiceImpl implements BookService {
      */
     @Override
     public String updateBook(BookEditDTO bookDTO) {
-        Optional<Book> book = bookRepository.findById(bookDTO.getId());
+        Optional<Book> book = bookRepository.findById(Long.valueOf(EncryptionUtil.decodeBase64(bookDTO.getId())));
         if (book.isPresent()) {
             BeanUtils.copyProperties(bookDTO, book.get());
             book.get().setUpdateTime(now());
@@ -69,11 +70,11 @@ public class BookServiceImpl implements BookService {
      * Delete a book
      */
     @Override
-    public String deleteBook(Long id) {
-        Optional<Book> book = bookRepository.findById(id);
+    public String deleteBook(String id) {
+        Optional<Book> book = bookRepository.findById(Long.valueOf(EncryptionUtil.decodeBase64(id)));
         if (book.isPresent()) {
             log.info("book already deleted, id: {}", book.get().getId());
-            bookRepository.deleteById(id);
+            bookRepository.deleteById(book.get().getId());
             return MessageConstant.SUCCESS;
         }
         return MessageConstant.FAILURE;
@@ -83,12 +84,13 @@ public class BookServiceImpl implements BookService {
      * get a book
      */
     @Override
-    public BookVO getBookById(Long id) {
-        Optional<Book> book = bookRepository.findById(id);
+    public BookVO getBookById(String id) {
+        Optional<Book> book = bookRepository.findById(Long.valueOf(EncryptionUtil.decodeBase64(id)));
         if (book.isPresent()) {
             log.info("get book id: {}", book.get().getId());
             BookVO bookVO = new BookVO();
             BeanUtils.copyProperties(book.get(), bookVO);
+            bookVO.setId(EncryptionUtil.encodeBase64(book.get().getId().toString()));
             bookVO.setBookStatusName(Objects.requireNonNull(BookStatusEnum.getBookStatusEnum(book.get().getBookStatus())).getName());
             return bookVO;
         }
@@ -120,6 +122,7 @@ public class BookServiceImpl implements BookService {
         page.getContent().forEach(book->{
             BookVO bookVO = new BookVO();
             BeanUtils.copyProperties(book, bookVO);
+            bookVO.setId(EncryptionUtil.encodeBase64(book.getId().toString()));
             bookVO.setBookStatusName(Objects.requireNonNull(BookStatusEnum.getBookStatusEnum(book.getBookStatus())).getName());
             bookVOList.add(bookVO);
         });

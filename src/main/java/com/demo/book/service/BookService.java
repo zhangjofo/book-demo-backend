@@ -19,9 +19,9 @@ public interface BookService {
 
     String updateBook(BookEditDTO bookDTO);
 
-    String deleteBook(Long id);
+    String deleteBook(String id);
 
-    BookVO getBookById(Long id);
+    BookVO getBookById(String id);
 
     Page<BookVO> queryBookList(BookQueryDTO bookQueryDTO);
 

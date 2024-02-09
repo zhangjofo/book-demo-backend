@@ -52,15 +52,15 @@ class BookControllerTest {
 
     @Test
     void testDeleteBook() {
-        when(bookService.deleteBook(anyLong())).thenReturn(MessageConstant.SUCCESS);
-        Result<String> result = bookController.deleteBook(1L);
+        when(bookService.deleteBook(anyString())).thenReturn(MessageConstant.SUCCESS);
+        Result<String> result = bookController.deleteBook(anyString());
         Assertions.assertEquals(ResultCode.SUCCESS.getCode(), result.getCode());
     }
 
     @Test
     void testGetBookById() {
-        when(bookService.getBookById(anyLong())).thenReturn(new BookVO());
-        Result<BookVO> result = bookController.getBookById(1L);
+        when(bookService.getBookById(anyString())).thenReturn(new BookVO());
+        Result<BookVO> result = bookController.getBookById(anyString());
         Assertions.assertEquals(ResultCode.SUCCESS.getCode(), result.getCode());
     }
 

@@ -52,7 +52,7 @@ public class BookController {
      */
     @WebLog(description = "delete book")
     @DeleteMapping("/delete/{id}")
-    public Result<String> deleteBook(@PathVariable("id") Long id) {
+    public Result<String> deleteBook(@PathVariable("id") String id) {
         return Result.data(bookService.deleteBook(id));
     }
 
@@ -61,7 +61,7 @@ public class BookController {
      */
     @WebLog(description = "get book details")
     @GetMapping("/get/{id}")
-    public Result<BookVO> getBookById(@PathVariable("id") Long id) {
+    public Result<BookVO> getBookById(@PathVariable("id") String id) {
         return Result.data(bookService.getBookById(id));
     }
 

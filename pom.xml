@@ -115,6 +115,7 @@
                                 <exclude>**/*Constant.*</exclude>
                                 <exclude>**/*Exception*.*</exclude>
                                 <exclude>**/*Config.*</exclude>
+                                <exclude>**/*Log*.*</exclude>
                                 <exclude>**/*Application.*</exclude>
                             </excludes>
                         </configuration>

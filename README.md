@@ -27,7 +27,7 @@ Check the quality of code with sonar
 
 * Use unified exception code to throw errors and reduce the use of try and catch
 * Unified log processing
-* Use traceId to track log location problems (To be processed)
+* Use traceId to track log location problems
 
 #### 4. Performance considerations
 
@@ -45,4 +45,3 @@ Check the quality of code with sonar
 * tools：IntelliJ IDEA
 * maven: 3.9.6
 * CI/CD：Automated deployment through docker+Jenkins+Git+Harbor (To be processed)
-
