@@ -8,8 +8,8 @@ Test case documentation：document/testcase/test case.xlsx
 #### 1. consider safety
 
 * Use Checkmarx to check whether the package is safe
-* In order to prevent the self-increasing ID from being probed, it will be encrypted (To be processed)
-* For security, it is necessary to encrypt the configuration file and add Nacos for dynamic configuration (To be processed)
+* In order to prevent the auto-increment ID from being detected, I encrypt it
+* For security, it is necessary to encrypt the configuration file and add Nacos for dynamic configuration
 
 #### 2. code quality
 
@@ -27,7 +27,7 @@ Check the quality of code with sonar
 
 * Use unified exception code to throw errors and reduce the use of try and catch
 * Unified log processing
-* Use traceId to track log location problems (To be processed)
+* Use traceId to track log location problems
 
 #### 4. Performance considerations
 
@@ -45,4 +45,3 @@ Check the quality of code with sonar
 * tools：IntelliJ IDEA
 * maven: 3.9.6
 * CI/CD：Automated deployment through docker+Jenkins+Git+Harbor (To be processed)
-

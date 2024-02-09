@@ -70,6 +70,7 @@ class BookServiceImplTest {
     @Test
     void testUpdateBook() {
         BookEditDTO bookDTO = new BookEditDTO();
+        bookDTO.setId("MQ==");
         bookDTO.setTitle("Book title");
         bookDTO.setIsbn("123456");
         bookDTO.setAuthor("Jofo");
@@ -86,7 +87,9 @@ class BookServiceImplTest {
     @Test
     void testUpdateBookFail() {
         when(bookRepository.findById(any())).thenReturn(Optional.empty());
-        String result = bookServiceImpl.updateBook(new BookEditDTO());
+        BookEditDTO bookDTO = new BookEditDTO();
+        bookDTO.setId("MQ==");
+        String result = bookServiceImpl.updateBook(bookDTO);
         assertEquals(MessageConstant.FAILURE, result);
     }
 
@@ -95,14 +98,14 @@ class BookServiceImplTest {
         Book book = new Book();
         book.setId(1L);
         when(bookRepository.findById(any())).thenReturn(Optional.of(book));
-        String result = bookServiceImpl.deleteBook(1L);
+        String result = bookServiceImpl.deleteBook("MQ==");
         assertEquals(MessageConstant.SUCCESS, result);
     }
 
     @Test
     void testDeleteBookFail() {
         when(bookRepository.findById(any())).thenReturn(Optional.empty());
-        String result = bookServiceImpl.deleteBook(1L);
+        String result = bookServiceImpl.deleteBook("MQ==");
         assertEquals(MessageConstant.FAILURE, result);
     }
 
@@ -118,14 +121,14 @@ class BookServiceImplTest {
         BeanUtils.copyProperties(bookVO, book);
         book.setId(1L);
         when(bookRepository.findById(any())).thenReturn(Optional.of(book));
-        BookVO result = bookServiceImpl.getBookById(1L);
+        BookVO result = bookServiceImpl.getBookById("MQ==");
         assertEquals(bookVO.getTitle(), result.getTitle());
     }
 
     @Test
     void testGetBookByIdNull() {
         when(bookRepository.findById(any())).thenReturn(Optional.empty());
-        BookVO result = bookServiceImpl.getBookById(1L);
+        BookVO result = bookServiceImpl.getBookById("MQ==");
         Assertions.assertNull(result);
     }
 
@@ -143,6 +146,7 @@ class BookServiceImplTest {
         List<Book> bookList = new ArrayList<>();
         Book book = new Book();
         BeanUtils.copyProperties(bookQueryDTO, book);
+        book.setId(1L);
         book.setBookStatus(1);
         bookList.add(book);
         Page<Book> page = new PageImpl<>(bookList,pageable,1);

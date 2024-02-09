@@ -75,6 +75,17 @@
             <artifactId>fastjson2</artifactId>
             <version>2.0.42</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
+            <version>3.0.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -115,6 +126,7 @@
                                 <exclude>**/*Constant.*</exclude>
                                 <exclude>**/*Exception*.*</exclude>
                                 <exclude>**/*Config.*</exclude>
+                                <exclude>**/*Log*.*</exclude>
                                 <exclude>**/*Application.*</exclude>
                             </excludes>
                         </configuration>

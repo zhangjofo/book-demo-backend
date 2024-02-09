@@ -15,7 +15,7 @@ import java.time.Instant;
 @ToString
 public class BookVO {
 
-    private Long id;
+    private String id;
 
     private String title;
 

@@ -9,8 +9,16 @@ spring:
   datasource:
     name : book
     url : jdbc:mysql://localhost:3306/book?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-    username : book
-    password: 123456
+    username : ENC(!..*)
+    password: ENC(NOPQRS)
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true
+
+jasypt:
+  encryptor:
+    password: 123
+    bean: desencrypt
+    algorithm: PBEWithMD5AndDES
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
+

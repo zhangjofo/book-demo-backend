@@ -3,7 +3,6 @@ POST {{host}}/book/add
 Content-Type: application/json
 
 {
-  "id": "",
   "title": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
   "author": "2332",
   "isbn": "111",
@@ -13,7 +12,7 @@ Content-Type: application/json
 }
 
 ### get
-GET {{host}}/book/get/11
+GET {{host}}/book/get/MjY=
 Content-Type: application/json
 
 ### update
@@ -21,7 +20,7 @@ PUT {{host}}/book/update
 Content-Type: application/json
 
 {
-  "id": 6,
+  "id": "MjY=",
   "title": "The Great",
   "author": "Charles Scribner's Sons",
   "publicationYear": "1925",
@@ -33,7 +32,7 @@ Content-Type: application/json
 }
 
 ### delete
-DELETE {{host}}/book/delete/2
+DELETE {{host}}/book/delete/NA==
 Content-Type: application/json
 
 ### list
