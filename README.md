@@ -8,7 +8,7 @@ Test case documentation：document/testcase/test case.xlsx
 #### 1. consider safety
 
 * Use Checkmarx to check whether the package is safe
-* In order to prevent the self-increasing ID from being probed, it will be encrypted
+* In order to prevent the auto-increment ID from being detected, I encrypt it
 * For security, it is necessary to encrypt the configuration file and add Nacos for dynamic configuration
 
 #### 2. code quality
