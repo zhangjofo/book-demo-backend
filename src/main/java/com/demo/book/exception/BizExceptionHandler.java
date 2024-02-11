@@ -30,6 +30,13 @@ public class BizExceptionHandler {
         return Result.fail( ResultCode.VALIDATE_ERROR.getCode(), e.getBindingResult().getAllErrors().getFirst().getDefaultMessage());
     }
 
+    @ExceptionHandler(value = java.lang.IllegalArgumentException.class)
+    @ResponseBody
+    public Result<String> globalExceptionHandler(java.lang.IllegalArgumentException e) {
+        log.error(MESSAGE, e);
+        return Result.fail( ResultCode.VALIDATE_ERROR.getCode(), "this data is not in the DB,please check");
+    }
+
     /**
      * Global anomalies
      */
