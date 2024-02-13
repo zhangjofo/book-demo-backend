@@ -3,7 +3,7 @@ POST {{host}}/book/add
 Content-Type: application/json
 
 {
-  "title": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "title": "test",
   "author": "2332",
   "isbn": "111",
   "publicationYear": "2022",
@@ -20,7 +20,7 @@ PUT {{host}}/book/update
 Content-Type: application/json
 
 {
-  "id": "MjY=",
+  "id": "MQ==",
   "title": "The Great",
   "author": "Charles Scribner's Sons",
   "publicationYear": "1925",
@@ -44,7 +44,7 @@ Content-Type: application/json
   "pageSize": 10,
   "title": "",
   "author": "",
-  "isbn": "159756",
+  "isbn": "",
   "sortBy": "createdTime",
   "sortDirection": "DESC"
 }
