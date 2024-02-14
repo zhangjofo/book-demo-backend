@@ -46,5 +46,47 @@ Check the quality of code with sonar
 * JDK：21
 * tools：IntelliJ IDEA
 * maven: 3.9.6
-* CI/CD：Automated deployment through docker+Jenkins+Git+Harbor (To be processed)
+* CI/CD：Automated deployment through Jenkins
+  
+  * Install JDK21:
+  
+  ```
+  wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.tar.gz
+  tar -xvf jdk-21_linux-x64_bin.tar.gz
+  ```
+  
+  * Install MAVEN:
+  
+  ```
+  wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
+  tar -xvf apache-maven-3.9.6-bin.tar.gz
+  mv /home/ec2-user/apache-maven-3.9.6 /opt/maven
+  ```
+  
+  * Configure the environment:
+    vim /etc/profile
+
+```
+export JAVA_HOME=/home/ec2-user/jdk-21.0.2
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export PATH=${JAVA_HOME}/bin:$PATH
+
+export MAVEN_HOME=/opt/maven
+export PATH=$PATH:$MAVEN_HOME/bin
+```
+
+* Install Jenkins:
+
+```
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+  sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+yum install jenkins
+```
+
+* Config Jenkins:
+
+
+
+
 
