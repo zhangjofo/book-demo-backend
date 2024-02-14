@@ -85,6 +85,7 @@ yum install jenkins
 ```
 
 * Config Jenkins:
+  config git、pom.xml、maven、jdk
 
 
 
