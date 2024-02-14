@@ -39,9 +39,12 @@ Check the quality of code with sonar
 
 (There is no requirement for data and performance in this development, so I didn't add relevant processing.)
 
+## demo url: http://3.0.89.164/
+
 ## Setup and deploy
 
 * JDK：21
 * tools：IntelliJ IDEA
 * maven: 3.9.6
 * CI/CD：Automated deployment through docker+Jenkins+Git+Harbor (To be processed)
+
