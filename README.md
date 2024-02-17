@@ -55,16 +55,29 @@ Check the quality of code with sonar
   tar -xvf jdk-21_linux-x64_bin.tar.gz
   ```
   
-  * Install MAVEN:
-  
-  ```
-  wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
-  tar -xvf apache-maven-3.9.6-bin.tar.gz
-  mv /home/ec2-user/apache-maven-3.9.6 /opt/maven
-  ```
-  
-  * Configure the environment:
-    vim /etc/profile
+  * Install docker:
+    
+    ```
+    yum install docker
+    ```
+  * Install mysql:
+    
+    ```
+    docker run -d --name mysql -e MYSQL_ROOT_PASSWORD=your password -p 3306:3306 mysql:8.0.24
+    ```
+    
+    create your DB,USER,TABLE
+
+* Install MAVEN:
+
+```
+wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
+tar -xvf apache-maven-3.9.6-bin.tar.gz
+mv /home/ec2-user/apache-maven-3.9.6 /opt/maven
+```
+
+* Configure the environment:
+  vim /etc/profile
 
 ```
 export JAVA_HOME=/home/ec2-user/jdk-21.0.2
@@ -85,9 +98,7 @@ yum install jenkins
 ```
 
 * Config Jenkins:
-  config git、pom.xml、maven、jdk
-
-
-
-
+  config git,pom.xml,maven,jdk,pipeline
+  ![image.png](document/images/jenkins-pipeline.png)
+  
 
