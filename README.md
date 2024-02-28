@@ -39,7 +39,7 @@ Check the quality of code with sonar
 
 (There is no requirement for data and performance in this development, so I didn't add relevant processing.)
 
-## demo url: http://3.0.89.164/
+## demo url: http://18.142.178.76/
 
 ## Setup and deploy
 
@@ -47,28 +47,32 @@ Check the quality of code with sonar
 * tools：IntelliJ IDEA
 * maven: 3.9.6
 * CI/CD：Automated deployment through Jenkins
-  
+
   * Install JDK21:
-  
+
   ```
   wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.tar.gz
   tar -xvf jdk-21_linux-x64_bin.tar.gz
   ```
-  
+
   * Install docker:
-    
+
     ```
     yum install docker
     ```
+  * Install git:
+
+    ```
+    sudo yum install git
+    ```
   * Install mysql:
-    
+
     ```
     docker run -d --name mysql -e MYSQL_ROOT_PASSWORD=your password -p 3306:3306 mysql:8.0.24
     ```
-    
-    create your DB,USER,TABLE
 
-* Install MAVEN:
+    create your DB,USER,TABLE
+  * Install MAVEN:
 
 ```
 wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
@@ -80,8 +84,8 @@ mv /home/ec2-user/apache-maven-3.9.6 /opt/maven
   vim /etc/profile
 
 ```
-export JAVA_HOME=/home/ec2-user/jdk-21.0.2
-export JRE_HOME=${JAVA_HOME}/jre
+export JAVA_HOME=/opt/jdk
+export JRE_HOME=/opt/jdk
 export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 export PATH=${JAVA_HOME}/bin:$PATH
 
@@ -93,12 +97,10 @@ export PATH=$PATH:$MAVEN_HOME/bin
 
 ```
 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
-  sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+ sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 yum install jenkins
 ```
 
 * Config Jenkins:
   config git,pom.xml,maven,jdk,pipeline
   ![image.png](document/images/jenkins-pipeline.png)
-  
-
